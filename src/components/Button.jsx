@@ -3,7 +3,7 @@ import React from "react";
 const Button = () => {
   return (
     <div className="text-center mt-14 sm:mt-16">
-      <button className="bg-orange-600 text-white px-1 py-2 rounded-md hover:bg-orange-700 transition-all">
+      <button className="bg-yellow-400 p-2 rounded-md hover:bg-yellow-300 transition-all">
         <a href="/my_file.pdf" download="kzh_file.pdf">
           Download
         </a>

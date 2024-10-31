@@ -1,4 +1,5 @@
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
+import { motion } from "framer-motion";
 import React, { useState } from "react";
 
 function Navbar() {
@@ -10,12 +11,24 @@ function Navbar() {
 
   return (
     <section className="sticky top-0 z-50">
-      <nav className="bg-yellow-100 opacity-85 p-4">
+      <motion.nav
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        className="bg-yellow-100 opacity-85 p-4"
+      >
         <div className="container mx-auto flex justify-between items-center">
           <div className="text-2xl text-green-600 font-bold uppercase">
             <a href="/">MyPage</a>
           </div>
-          <div className="hidden md:flex gap-4">
+
+          {/* Desktop Links with Animation */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
+            className="hidden md:flex gap-4"
+          >
             <a
               href="#home"
               className="text-emerald-800 hover:text-emerald-600 font-bold text-lg transition-all"
@@ -40,7 +53,9 @@ function Navbar() {
             >
               Contact
             </a>
-          </div>
+          </motion.div>
+
+          {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
@@ -55,9 +70,13 @@ function Navbar() {
           </div>
         </div>
 
-        <div
-          className={`absolute top-full left-0 w-full bg-transparant backdrop-blur-sm transition-all duration-500 ease-in-out transform ${
-            isOpen ? "bg-yellow-100 opacity-100" : "opacity-0 pointer-events-none"
+        {/* Mobile Menu with Animation */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: isOpen ? 1 : 0, y: isOpen ? 0 : -20 }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
+          className={`absolute top-full left-0 w-full bg-yellow-100 ${
+            isOpen ? "pointer-events-auto" : "pointer-events-none"
           }`}
         >
           <a
@@ -84,8 +103,8 @@ function Navbar() {
           >
             Contact
           </a>
-        </div>
-      </nav>
+        </motion.div>
+      </motion.nav>
     </section>
   );
 }

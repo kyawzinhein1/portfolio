@@ -28,10 +28,10 @@ const Hero = () => {
           animate={{ x: 0 }}
           transition={{ duration: 1 }}
         >
-          <h1 className="text-3xl font-bold text-center sm:text-left">
+          <h1 className="text-3xl font-bold text-center sm:text-left text-blue-800">
             Hi! I am Kyaw Zin Hein
           </h1>
-          <p className="text-center sm:text-left">
+          <p className="text-center sm:text-left text-gray-600">
             Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
             excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
             a id nisi.

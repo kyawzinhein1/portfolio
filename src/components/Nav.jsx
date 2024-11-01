@@ -9,6 +9,10 @@ function Navbar() {
     setIsOpen(!isOpen);
   };
 
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
+
   return (
     <section className="sticky top-0 z-50">
       <motion.nav
@@ -30,13 +34,13 @@ function Navbar() {
             className="hidden md:flex gap-4"
           >
             <a
-              href="#home"
+              href=""
               className="text-emerald-800 hover:text-emerald-600 font-bold text-lg transition-all"
             >
               Home
             </a>
             <a
-              href="#about"
+              href="#skills"
               className="text-emerald-800 hover:text-emerald-600 font-bold text-lg transition-all"
             >
               Skills
@@ -72,6 +76,7 @@ function Navbar() {
 
         {/* Mobile Menu with Animation */}
         <motion.div
+          onClick={closeMenu}
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: isOpen ? 1 : 0, y: isOpen ? 0 : -20 }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
@@ -80,13 +85,13 @@ function Navbar() {
           }`}
         >
           <a
-            href="#home"
+            href=""
             className="block text-emerald-600 font-bold text-md text-center hover:text-emerald-800 px-4 py-2 transition-all"
           >
             Home
           </a>
           <a
-            href="#about"
+            href="#skills"
             className="block text-emerald-600 font-bold text-md text-center hover:text-emerald-800 px-4 py-2 transition-all"
           >
             Skills

@@ -1,12 +1,10 @@
 import React from "react";
 
-const Button = () => {
+const Button = ({ text }) => {
   return (
-    <div className="text-center mt-14 sm:mt-16">
-      <button className="bg-yellow-400 p-2 rounded-md hover:bg-yellow-300 transition-all">
-        <a href="/my_file.pdf" download="kzh_file.pdf">
-          Download
-        </a>
+    <div>
+      <button className="bg-blue-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-blue-700 transition-colors">
+        {text}
       </button>
     </div>
   );

@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import Button from "./Button";
 
 const Contact = () => {
   const inputVariants = {
@@ -24,15 +25,6 @@ const Contact = () => {
           viewport={{ once: false, amount: 0.2 }}
           className="bg-white rounded-lg p-6 shadow-lg space-y-6"
         >
-          {/* <motion.div variants={inputVariants}>
-            <label className="block text-gray-700 font-bold mb-2">Name</label>
-            <input
-              type="text"
-              placeholder="Your Name"
-              className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-            />
-          </motion.div> */}
-
           <motion.div variants={inputVariants}>
             <label className="block text-gray-700 font-bold mb-2">Email</label>
             <input
@@ -54,12 +46,7 @@ const Contact = () => {
           </motion.div>
 
           <motion.div variants={inputVariants} className="text-center">
-            <button
-              type="submit"
-              className="bg-blue-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-blue-700 transition-colors"
-            >
-              Send Message
-            </button>
+            <Button text={"Send Message"} />
           </motion.div>
         </motion.form>
       </div>

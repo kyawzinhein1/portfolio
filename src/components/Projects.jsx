@@ -35,20 +35,14 @@ const projects = [
 ];
 
 const Projects = () => {
-  // Animation variants for staggering the appearance of each card
-  const containerVariants = {
-    hidden: { opacity: 0 },
+  const cardVariants = {
+    hidden: { opacity: 0, y: 10 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
+      y: 0,
+      transition: { duration: 1 },
+      // delay: 0.6,
     },
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0 },
   };
 
   return (
@@ -58,17 +52,14 @@ const Projects = () => {
           Projects
         </h2>
 
-        <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.1 }} // Trigger animation when 20% is in view
-          variants={containerVariants}
-        >
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={index}
               className="relative bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300"
+              initial="hidden"
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ amount: 0.3 }}
               variants={cardVariants}
             >
               <div className="relative w-full h-48 overflow-hidden">
@@ -79,10 +70,10 @@ const Projects = () => {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-lg font-semibold text-blue-800">
+                <h3 className="text-xl font-bold text-blue-600">
                   {project.title}
                 </h3>
-                <p className="text-gray-600 mt-2 mb-4">{project.description}</p>
+                <p className="text-gray-500 mt-2 mb-4">{project.description}</p>
                 <a
                   href={project.link}
                   target="_blank"
@@ -94,7 +85,7 @@ const Projects = () => {
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

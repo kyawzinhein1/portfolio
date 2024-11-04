@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { FaHtml5, FaCss3Alt, FaJs, FaReact } from "react-icons/fa"; // Example icons
+import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs } from "react-icons/fa";
+import { SiMongodb, SiExpress } from "react-icons/si";
 
 const skills = [
   {
@@ -24,13 +25,32 @@ const skills = [
     title: "React",
     description: "Efficient, component-based architecture for dynamic UIs.",
   },
+  {
+    icon: <SiMongodb className="text-green-600 text-4xl" />,
+    title: "MongoDB",
+    description:
+      "Document-oriented NoSQL database for scalable, flexible data storage.",
+  },
+  {
+    icon: <SiExpress className="text-gray-700 text-4xl" />,
+    title: "Express.js",
+    description: "Fast, unopinionated, minimalist web framework for Node.js.",
+  },
+  {
+    icon: <FaNodeJs className="text-green-500 text-4xl" />,
+    title: "Node.js",
+    description:
+      "Server-side JavaScript runtime for scalable network applications.",
+  },
 ];
 
 const Skills = () => {
   return (
     <section id="skills" className="py-16">
       <div className="container mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-6 text-blue-800">Skills</h2>
+        <h2 className="text-3xl font-bold text-center mb-6 text-blue-800">
+          Skills
+        </h2>
 
         <div className="grid grid-cols-1 mx-6 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {skills.map((skill, index) => (

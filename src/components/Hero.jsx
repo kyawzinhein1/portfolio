@@ -42,7 +42,9 @@ const Hero = () => {
             practical, real-world applications.
           </p>
           <div className="flex justify-center sm:justify-start">
-            <Button text={"Download CV"} />
+            <a href="/KZH-CV.pdf" download={"kzh_cv"}>
+              <Button text={"Download CV"} />
+            </a>
           </div>
         </motion.div>
       </motion.div>

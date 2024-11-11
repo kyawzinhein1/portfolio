@@ -1,6 +1,6 @@
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
-import { motion } from "framer-motion";
-import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,46 +14,46 @@ function Navbar() {
   };
 
   return (
-    <section className="sticky top-0 z-50">
+    <section className="fixed top-0 left-0 right-0 z-50">
       <motion.nav
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease: "easeOut" }}
-        className="bg-yellow-100 bg-opacity-40 backdrop-blur-sm p-4"
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="bg-white bg-opacity-60 backdrop-blur-md shadow-md p-4"
       >
         <div className="container mx-auto flex justify-between items-center">
           <div className="text-lg text-blue-700 font-bold uppercase">
-            <a href="/">portfolio</a>
+            <a href="/">Portfolio</a>
           </div>
 
           {/* Desktop Links with Animation */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
-            className="hidden md:flex gap-4"
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+            className="hidden md:flex gap-6"
           >
             <a
-              href=""
-              className="text-blue-600 hover:text-blue-800 font-bold text-lg transition-colors"
+              href="/"
+              className="text-blue-600 hover:text-blue-800 font-semibold text-lg transition-colors"
             >
               Home
             </a>
             <a
               href="#skills"
-              className="text-blue-600 hover:text-blue-800 font-bold text-lg transition-colors"
+              className="text-blue-600 hover:text-blue-800 font-semibold text-lg transition-colors"
             >
               Skills
             </a>
             <a
               href="#projects"
-              className="text-blue-600 hover:text-blue-800 font-bold text-lg transition-colors"
+              className="text-blue-600 hover:text-blue-800 font-semibold text-lg transition-colors"
             >
               Projects
             </a>
             <a
               href="#contact"
-              className="text-blue-600 hover:text-blue-800 font-bold text-lg transition-colors"
+              className="text-blue-600 hover:text-blue-800 font-semibold text-lg transition-colors"
             >
               Contact
             </a>
@@ -63,7 +63,9 @@ function Navbar() {
           <div className="md:hidden text-blue-700">
             <button
               onClick={toggleMenu}
-              className="hover:text-blue-800 transition-colors"
+              className="focus:outline-none"
+              aria-label="Toggle menu"
+              aria-expanded={isOpen}
             >
               {isOpen ? (
                 <XMarkIcon className="w-6 h-6" />
@@ -73,43 +75,59 @@ function Navbar() {
             </button>
           </div>
         </div>
-
-        {/* Mobile Menu with Animation */}
-        <motion.div
-          onClick={closeMenu}
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: isOpen ? 1 : 0, y: isOpen ? 0 : -20 }}
-          transition={{ duration: 0.5, ease: "easeInOut" }}
-          className={`absolute top-full left-0 w-full bg-yellow-100 ${
-            isOpen ? "pointer-events-auto bg-opacity-40 backdrop-blur-sm pb-2" : "pointer-events-none"
-          }`}
-        >
-          <a
-            href=""
-            className="block text-blue-600 font-bold text-md text-center hover:text-blue-800 px-4 py-2 transition-colors"
-          >
-            Home
-          </a>
-          <a
-            href="#skills"
-            className="block text-blue-600 font-bold text-md text-center hover:text-blue-800 px-4 py-2 transition-colors"
-          >
-            Skills
-          </a>
-          <a
-            href="#projects"
-            className="block text-blue-600 font-bold text-md text-center hover:text-blue-800 px-4 py-2 transition-colors"
-          >
-            Projects
-          </a>
-          <a
-            href="#contact"
-            className="block text-blue-600 font-bold text-md text-center hover:text-blue-800 px-4 py-2 transition-colors"
-          >
-            Contact
-          </a>
-        </motion.div>
       </motion.nav>
+
+      {/* Mobile Menu with Animation */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex justify-center items-center"
+            onClick={closeMenu}
+          >
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="bg-white bg-opacity-80 backdrop-blur-md rounded-lg shadow-lg p-8 space-y-6 w-60"
+              onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside the menu
+            >
+              <a
+                href="/"
+                onClick={closeMenu}
+                className="block text-center text-blue-700 font-semibold text-xl hover:text-blue-900 hover:font-bold transition-colors"
+              >
+                Home
+              </a>
+              <a
+                href="#skills"
+                onClick={closeMenu}
+                className="block text-center text-blue-700 font-semibold text-xl hover:text-blue-900 hover:font-bold transition-colors"
+              >
+                Skills
+              </a>
+              <a
+                href="#projects"
+                onClick={closeMenu}
+                className="block text-center text-blue-700 font-semibold text-xl hover:text-blue-900 hover:font-bold transition-colors"
+              >
+                Projects
+              </a>
+              <a
+                href="#contact"
+                onClick={closeMenu}
+                className="block text-center text-blue-700 font-semibold text-xl hover:text-blue-900 hover:font-bold transition-colors"
+              >
+                Contact
+              </a>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

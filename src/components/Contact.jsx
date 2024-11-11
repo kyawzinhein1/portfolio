@@ -1,9 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import Button from "./Button";
-
 import { Bounce, ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import Button from "./Button";
 
 const Contact = () => {
   const [email, setEmail] = useState("");
@@ -22,11 +20,9 @@ const Contact = () => {
     } else if (!/\S+@\S+\.\S+/.test(email)) {
       newErrors.email = "Please enter a valid email address.";
     }
-
     if (!message) {
       newErrors.message = "Message cannot be empty.";
     }
-
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -37,24 +33,15 @@ const Contact = () => {
       toast.success("Message sent successfully!", {
         position: "top-center",
         autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
         theme: "colored",
         transition: Bounce,
       });
-      // Clear the fields after a successful submission
       setEmail("");
       setMessage("");
     } else {
       toast.error("Email & Message required.", {
         position: "top-center",
         autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
         theme: "colored",
         transition: Bounce,
       });
@@ -62,10 +49,10 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-12">
+    <section id="contact" className="py-14">
       <ToastContainer />
       <div className="container mx-auto px-6 max-w-lg">
-        <h2 className="text-3xl font-bold text-center mb-3 text-blue-800">
+        <h2 className="text-4xl font-bold text-center mb-4 text-blue-800">
           Contact
         </h2>
         <p className="text-center text-gray-600 mb-6">
@@ -77,17 +64,19 @@ const Contact = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false, amount: 0.2 }}
-          className="bg-white rounded-lg p-6 shadow-lg space-y-6"
+          className="bg-white rounded-2xl p-8 shadow-2xl space-y-6"
           onSubmit={sendMessageHandler}
         >
           <motion.div variants={inputVariants}>
-            <label className="block text-gray-700 font-bold mb-2">Email</label>
+            <label className="block text-gray-700 font-semibold mb-2">Email</label>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Your Email"
-              className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className={`w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 ${
+                errors.email ? "border-red-500" : ""
+              }`}
             />
             {errors.email && (
               <p className="text-red-500 text-sm mt-1">{errors.email}</p>
@@ -95,15 +84,15 @@ const Contact = () => {
           </motion.div>
 
           <motion.div variants={inputVariants}>
-            <label className="block text-gray-700 font-bold mb-2">
-              Message
-            </label>
+            <label className="block text-gray-700 font-semibold mb-2">Message</label>
             <textarea
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               placeholder="Your Message"
-              className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-              rows="2"
+              className={`w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 ${
+                errors.message ? "border-red-500" : ""
+              }`}
+              rows="4"
             ></textarea>
             {errors.message && (
               <p className="text-red-500 text-sm mt-1">{errors.message}</p>
@@ -111,9 +100,11 @@ const Contact = () => {
           </motion.div>
 
           <motion.div variants={inputVariants} className="text-center">
-            <div onClick={sendMessageHandler}>
-              <Button text={"Send Message"} />
-            </div>
+            <Button
+              type="submit"
+              className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-md shadow-lg hover:bg-blue-700 transition duration-200"
+              text={"Submit Message"}
+            />
           </motion.div>
         </motion.form>
       </div>

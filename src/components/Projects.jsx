@@ -1,33 +1,25 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { FaExternalLinkAlt } from "react-icons/fa";
 
 const projects = [
   {
-    title: "Portfolio Website",
+    title: "MarketPlace Website",
     description:
-      "A personal portfolio website showcasing my projects and blog posts.",
-    link: "https://www.hostinger.in/tutorials/wp-content/uploads/sites/2/2024/09/Dalya-Baron-homepage-1024x577.png",
-    imageUrl:
-      "https://www.hostinger.in/tutorials/wp-content/uploads/sites/2/2024/09/Dalya-Baron-homepage-1024x577.png", // Example image path
-  },
-  {
-    title: "E-commerce Store",
-    description:
-      "A full-featured e-commerce platform with payment integration.",
+      "A full-featured e-commerce platform with user authentication and admin dashboard.",
     link: "https://themewagon.com/wp-content/uploads/2021/12/famms-1.png",
     imageUrl: "https://themewagon.com/wp-content/uploads/2021/12/famms-1.png",
   },
   {
-    title: "Social Media App",
+    title: "Blog Website",
     description:
-      "A social media app with user authentication and real-time updates.",
+      "A blog website with user authentication, payment for premium users, and real-time updates.",
     link: "https://images04.nicepage.com/feature/461183/website-blog.jpg",
     imageUrl: "https://images04.nicepage.com/feature/461183/website-blog.jpg",
   },
   {
-    title: "Weather Dashboard",
-    description: "A weather dashboard providing forecasts using a public API.",
+    title: "Live Chat App",
+    description:
+      "A real-time chat app using web-socket and MongoDB for storage of messages.",
     link: "https://s3-alpha.figma.com/hub/file/633847288/75077dd2-0d1b-42c8-b650-ab85ff70272c-cover.png",
     imageUrl:
       "https://s3-alpha.figma.com/hub/file/633847288/75077dd2-0d1b-42c8-b650-ab85ff70272c-cover.png",
@@ -36,19 +28,18 @@ const projects = [
 
 const Projects = () => {
   const cardVariants = {
-    hidden: { opacity: 0, y: 10 },
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 1 },
-      // delay: 0.6,
+      transition: { duration: 0.6, ease: "easeOut" },
     },
   };
 
   return (
     <section id="projects" className="py-16">
       <div className="container mx-auto px-6">
-        <h2 className="text-3xl font-bold text-center mb-8 text-blue-800">
+        <h2 className="text-4xl font-bold text-center mb-12 text-blue-800">
           Projects
         </h2>
 
@@ -56,13 +47,13 @@ const Projects = () => {
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className="relative bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300"
+              className="relative bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 transition-transform duration-300"
               initial="hidden"
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ amount: 0.3 }}
+              whileInView="visible"
+              viewport={{ once: false, amount: 0.3 }}
               variants={cardVariants}
             >
-              <div className="relative w-full h-48 overflow-hidden">
+              <div className="relative w-full h-56 overflow-hidden rounded-t-xl">
                 <img
                   src={project.imageUrl}
                   alt={project.title}
@@ -70,10 +61,10 @@ const Projects = () => {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold text-blue-600">
+                <h3 className="text-2xl font-bold text-blue-600 mb-2">
                   {project.title}
                 </h3>
-                <p className="text-gray-500 mt-2 mb-4">{project.description}</p>
+                <p className="text-gray-600 mb-4">{project.description}</p>
                 <a
                   href={project.link}
                   target="_blank"

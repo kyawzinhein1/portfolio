@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from "prop-types";
 
 const Button = ({ text }) => {
   return (
@@ -8,6 +8,11 @@ const Button = ({ text }) => {
       </button>
     </div>
   );
+};
+
+// Define prop types for validation
+Button.propTypes = {
+  text: PropTypes.string.isRequired,
 };
 
 export default Button;

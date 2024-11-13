@@ -6,23 +6,22 @@ const projects = [
     title: "MarketPlace Website",
     description:
       "A full-featured e-commerce platform with user authentication and admin dashboard.",
-    link: "https://themewagon.com/wp-content/uploads/2021/12/famms-1.png",
-    imageUrl: "https://themewagon.com/wp-content/uploads/2021/12/famms-1.png",
+    link: "https://github.com/kyawzinhein1/MarketPlace",
+    imageUrl: "/marketplace.PNG",
   },
   {
     title: "Blog Website",
     description:
       "A blog website with user authentication, payment for premium users, and real-time updates.",
-    link: "https://images04.nicepage.com/feature/461183/website-blog.jpg",
-    imageUrl: "https://images04.nicepage.com/feature/461183/website-blog.jpg",
+    link: "https://github.com/kyawzinhein1/ExpressJS",
+    imageUrl: "/blog.PNG",
   },
   {
     title: "Live Chat App",
     description:
       "A real-time chat app using web-socket and MongoDB for storage of messages.",
-    link: "https://s3-alpha.figma.com/hub/file/633847288/75077dd2-0d1b-42c8-b650-ab85ff70272c-cover.png",
-    imageUrl:
-      "https://s3-alpha.figma.com/hub/file/633847288/75077dd2-0d1b-42c8-b650-ab85ff70272c-cover.png",
+    link: "https://github.com/kyawzinhein1/Room-Chat-App",
+    imageUrl: "/chat.PNG",
   },
 ];
 

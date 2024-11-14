@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Bounce, ToastContainer, toast } from "react-toastify";
+import { Bounce, toast } from "react-toastify";
 import Button from "./Button";
 
 const Contact = () => {
@@ -50,12 +50,11 @@ const Contact = () => {
 
   return (
     <section id="contact" className="py-14">
-      <ToastContainer />
       <div className="container mx-auto px-6 max-w-lg">
-        <h2 className="text-4xl font-bold text-center mb-4 text-blue-800">
+        <h2 className="text-4xl font-bold text-center mb-4 text-blue-800 dark:text-blue-500">
           Contact
         </h2>
-        <p className="text-center text-gray-600 mb-6">
+        <p className="text-center text-gray-600 dark:text-gray-300 mb-6">
           Have any questions or want to collaborate? Fill out the form below,
           and I’ll get back to you shortly!
         </p>
@@ -64,7 +63,7 @@ const Contact = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false, amount: 0.2 }}
-          className="bg-white rounded-2xl p-8 shadow-2xl space-y-6"
+          className="bg-white dark:bg-gray-300 rounded-2xl p-8 shadow-2xl space-y-6"
           onSubmit={sendMessageHandler}
         >
           <motion.div variants={inputVariants}>
@@ -74,7 +73,7 @@ const Contact = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Your Email"
-              className={`w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 ${
+              className={`w-full dark:bg-gray-300 p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 ${
                 errors.email ? "border-red-500" : ""
               }`}
             />
@@ -89,7 +88,7 @@ const Contact = () => {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               placeholder="Your Message"
-              className={`w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 ${
+              className={`w-full dark:bg-gray-300 p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 ${
                 errors.message ? "border-red-500" : ""
               }`}
               rows="4"

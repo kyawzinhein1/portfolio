@@ -38,7 +38,7 @@ const Projects = () => {
   return (
     <section id="projects" className="py-16">
       <div className="container mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center mb-12 text-blue-800">
+        <h2 className="text-4xl font-bold text-center mb-12 text-blue-800 dark:text-blue-500">
           Projects
         </h2>
 
@@ -46,7 +46,7 @@ const Projects = () => {
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className="relative bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 transition-transform duration-300"
+              className="relative bg-white dark:bg-gray-300 rounded-xl shadow-xl overflow-hidden transform hover:scale-105 transition-transform duration-300"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: false, amount: 0.3 }}

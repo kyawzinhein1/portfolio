@@ -3,7 +3,7 @@ import Button from "./Button";
 
 const Hero = () => {
   return (
-    <section className="flex items-center mt-28 text-blue-900 px-6 md:h-screen md:mt-0">
+    <section className="flex items-center pt-28 text-blue-900 px-6 md:h-screen md:mt-0">
       <div className="container mx-auto flex flex-col md:flex-row items-center md:space-x-10">
         <motion.div
           className="flex-1 mb-10 md:mb-0"
@@ -25,19 +25,20 @@ const Hero = () => {
           transition={{ duration: 1, ease: "easeOut" }}
         >
           <motion.h1
-            className="text-4xl md:text-5xl font-bold mb-4 text-blue-900"
+            className="text-4xl md:text-5xl font-bold mb-4 text-blue-900 dark:text-blue-400"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.3 }}
           >
             Hi, I’m{" "}
-            <span className="text-blue-600 decoration-blue-300">
+            <span className="text-blue-600 decoration-blue-300 dark:decoration-blue-600">
               Kyaw Zin Hein
-            </span>.
+            </span>
+            .
           </motion.h1>
 
           <motion.p
-            className="text-lg md:text-xl text-blue-800 mb-6 leading-relaxed max-w-lg mx-auto md:mx-0"
+            className="text-lg md:text-xl text-blue-800 mb-6 leading-relaxed max-w-lg mx-auto md:mx-0 dark:text-gray-400"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.5 }}
@@ -56,7 +57,10 @@ const Hero = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.6 }}
             >
-              <Button text="Download CV" />
+              <Button
+                text="Download CV"
+                className="bg-blue-600 hover:bg-blue-700 text-white shadow-md"
+              />
             </motion.a>
             <motion.a
               href="#contact"

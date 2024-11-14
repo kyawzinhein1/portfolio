@@ -1,8 +1,9 @@
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
+import { SunIcon, MoonIcon } from "@heroicons/react/24/solid";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
-function Navbar() {
+function Navbar({ toggleDarkMode, darkMode }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -14,7 +15,7 @@ function Navbar() {
   };
 
   return (
-    <section className="fixed top-0 left-0 right-0 z-50">
+    <section className="sticky top-0 z-50 bg-yellow-100 bg-opacity-10 dark:bg-gray-800 dark:bg-opacity-10 shadow-lg">
       <motion.nav
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -22,7 +23,7 @@ function Navbar() {
         className="bg-white bg-opacity-60 backdrop-blur-md shadow-md p-4"
       >
         <div className="container mx-auto flex justify-between items-center">
-          <div className="text-lg text-blue-700 font-bold uppercase">
+          <div className="text-2xl font-bold uppercase text-blue-600 dark:text-yellow-400">
             <a href="/">Portfolio</a>
           </div>
 
@@ -57,13 +58,38 @@ function Navbar() {
             >
               Contact
             </a>
+            {/* Dark Mode Toggle */}
+            <button
+              onClick={toggleDarkMode}
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-300 dark:bg-gray-700 dark:bg-opacity-30 text-gray-800 dark:text-gray-100 transition-all duration-300 ease-in-out transform hover:scale-110"
+              aria-label="Toggle Dark Mode"
+            >
+              {darkMode ? (
+                <SunIcon className="w-6 h-6 transform rotate-0 transition-transform duration-500 ease-in-out" />
+              ) : (
+                <MoonIcon className="w-6 h-6 transform rotate-0 transition-transform duration-500 ease-in-out" />
+              )}
+            </button>
           </motion.div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden text-blue-700">
+          <div className="md:hidden text-blue-600 dark:text-white flex gap-3">
+            {/* Dark Mode Toggle */}
+            <button
+              onClick={toggleDarkMode}
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-300 dark:bg-gray-700 dark:bg-opacity-40 text-gray-800 dark:text-gray-100 transition-all duration-300 ease-in-out transform hover:scale-110"
+              aria-label="Toggle Dark Mode"
+            >
+              {darkMode ? (
+                <SunIcon className="w-6 h-6 transform rotate-0 transition-transform duration-500 ease-in-out" />
+              ) : (
+                <MoonIcon className="w-6 h-6 transform rotate-0 transition-transform duration-500 ease-in-out" />
+              )}
+            </button>
+
             <button
               onClick={toggleMenu}
-              className="focus:outline-none"
+              className="rounded-full w-10 h-10 flex items-center justify-center transition-all duration-300 ease-in-out transform hover:scale-110 bg-gray-300 dark:bg-gray-700 dark:bg-opacity-40"
               aria-label="Toggle menu"
               aria-expanded={isOpen}
             >

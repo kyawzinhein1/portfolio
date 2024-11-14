@@ -3,7 +3,7 @@ import Button from "./Button";
 
 const Hero = () => {
   return (
-    <section className="flex items-center pt-28 text-blue-900 px-6 md:h-screen md:mt-0">
+    <section className="flex items-center pt-14 text-blue-900 px-6 md:h-screen md:mt-0">
       <div className="container mx-auto flex flex-col md:flex-row items-center md:space-x-10">
         <motion.div
           className="flex-1 mb-10 md:mb-0"

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Bounce, toast } from "react-toastify";
+import { Bounce, toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Button from "./Button";
 
 const Contact = () => {
@@ -67,13 +68,15 @@ const Contact = () => {
           onSubmit={sendMessageHandler}
         >
           <motion.div variants={inputVariants}>
-            <label className="block text-gray-700 font-semibold mb-2">Email</label>
+            <label className="block text-gray-700 font-semibold mb-2">
+              Email
+            </label>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Your Email"
-              className={`w-full dark:bg-gray-300 p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 ${
+              className={`w-full dark:bg-gray-300 dark:text-black p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 ${
                 errors.email ? "border-red-500" : ""
               }`}
             />
@@ -83,12 +86,14 @@ const Contact = () => {
           </motion.div>
 
           <motion.div variants={inputVariants}>
-            <label className="block text-gray-700 font-semibold mb-2">Message</label>
+            <label className="block text-gray-700 font-semibold mb-2">
+              Message
+            </label>
             <textarea
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               placeholder="Your Message"
-              className={`w-full dark:bg-gray-300 p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 ${
+              className={`w-full dark:bg-gray-300 dark:text-black p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 ${
                 errors.message ? "border-red-500" : ""
               }`}
               rows="4"
@@ -106,6 +111,7 @@ const Contact = () => {
             />
           </motion.div>
         </motion.form>
+        <ToastContainer />
       </div>
     </section>
   );

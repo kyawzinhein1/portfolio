@@ -7,21 +7,21 @@ const projects = [
     description:
       "A full-featured e-commerce platform with user authentication and admin dashboard.",
     link: "https://github.com/kyawzinhein1/MarketPlace",
-    imageUrl: "/marketplace.PNG",
+    imageUrl: "/market-place.png",
   },
   {
     title: "Blog Website",
     description:
       "A blog website with user authentication, payment for premium users, and real-time updates.",
     link: "https://github.com/kyawzinhein1/ExpressJS",
-    imageUrl: "/blog.PNG",
+    imageUrl: "/blog-website.png",
   },
   {
     title: "Live Chat App",
     description:
       "A real-time chat app using web-socket and MongoDB for storage of messages.",
     link: "https://github.com/kyawzinhein1/Room-Chat-App",
-    imageUrl: "/chat.PNG",
+    imageUrl: "/chat-app.png",
   },
 ];
 

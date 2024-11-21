@@ -3,7 +3,7 @@ import Button from "./Button";
 
 const Hero = () => {
   return (
-    <section className="flex items-center pt-14 text-blue-900 px-6 md:h-screen md:mt-0">
+    <section className="flex items-center pt-14 text-blue-900 px-6 md:h-screen md:mt-0 md:py-auto">
       <div className="container mx-auto flex flex-col md:flex-row items-center md:space-x-10">
         <motion.div
           className="flex-1 mb-10 md:mb-0"
@@ -12,7 +12,7 @@ const Hero = () => {
           transition={{ duration: 1, ease: "easeOut" }}
         >
           <img
-            src="/my-photo.jpg"
+            src="/profile-photo.jpg"
             className="w-72 h-72 mx-auto md:w-80 md:h-80 rounded-lg shadow-lg object-cover"
             alt="Kyaw Zin Hein"
           />
@@ -51,7 +51,7 @@ const Hero = () => {
           {/* Button Section */}
           <div className="flex justify-center md:justify-start gap-4 mt-6">
             <motion.a
-              href="/KZH-CV.pdf"
+              href="/kzh-cv.pdf"
               download="kzh_cv"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}

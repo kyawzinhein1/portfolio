@@ -23,6 +23,13 @@ const projects = [
     link: "https://github.com/kyawzinhein1/Room-Chat-App",
     imageUrl: "/chat-app.png",
   },
+  {
+    title: "POS System",
+    description:
+      "A Point of Sale (POS) System designed for managing daily operations of a grocery shop.",
+    link: "https://github.com/kyawzinhein1/pos-system",
+    imageUrl: "/pos.png",
+  },
 ];
 
 const Projects = () => {
@@ -36,23 +43,23 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects">
+    <section id="projects" className="py-16 dark:bg-gray-800">
       <div className="container mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center mb-12 text-blue-800 dark:text-blue-500">
+        <h2 className="text-4xl font-bold text-center mb-12 text-blue-800 dark:text-blue-400">
           Projects
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className="relative bg-white dark:bg-gray-300 rounded-xl shadow-xl overflow-hidden transform hover:scale-105 transition-transform duration-300"
+              className="bg-white dark:bg-gray-300 rounded-xl shadow-xl overflow-hidden transform hover:scale-105 transition-transform duration-300"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: false, amount: 0.3 }}
               variants={cardVariants}
             >
-              <div className="relative w-full h-56 overflow-hidden rounded-t-xl">
+              <div className="relative w-full h-40 overflow-hidden rounded-t-xl">
                 <img
                   src={project.imageUrl}
                   alt={project.title}

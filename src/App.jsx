@@ -36,7 +36,7 @@ const App = () => {
   return (
     <div className={`${darkMode ? "dark" : ""}`}>
       <Nav toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
-      <main className=" dark:bg-gray-900 text-gray-400 dark:text-gray-100">
+      <main className=" dark:bg-black text-gray-600 dark:text-gray-300">
         <Hero />
         <Skills />
         <Projects />

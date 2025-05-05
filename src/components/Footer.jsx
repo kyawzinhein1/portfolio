@@ -8,7 +8,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-slate-800 text-white py-4">
+    <footer className="bg-slate-800 text-white py-4 dark:bg-slate-900 dark:text-gray-400">
       <div className="container mx-auto px-6">
         <motion.div
           initial="hidden"
@@ -26,7 +26,7 @@ const Footer = () => {
 
           <div className="flex gap-4 md:mb-0">
             <a
-              href="mailto:kyawzinhein@gmail.com"
+              href="mailto:kyawzinhein.developer@gmail.com"
               className="hover:text-gray-400 transition-colors"
               label="Email"
             >
@@ -41,7 +41,7 @@ const Footer = () => {
               <FaGithub className="w-6 h-6" />
             </a>
             <a
-              href="https://www.linkedin.com/in/kyawzinhein"
+              href="https://www.linkedin.com/in/kyawzinhein-997kzh/"
               target="_blank"
               className="hover:text-gray-400 transition-colors"
               label="LinkedIn"

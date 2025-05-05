@@ -15,7 +15,7 @@ function Navbar({ toggleDarkMode, darkMode }) {
   };
 
   return (
-    <section className="sticky top-0 z-50 bg-yellow-100 bg-opacity-10 dark:bg-gray-800 dark:bg-opacity-10 shadow-lg">
+    <section className="sticky top-0 z-50 bg-yellow-100 bg-opacity-10 dark:bg-gray-800 dark:bg-opacity-70 shadow-lg">
       <motion.nav
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -24,7 +24,9 @@ function Navbar({ toggleDarkMode, darkMode }) {
       >
         <div className="container mx-auto flex justify-between items-center">
           <div className="text-2xl font-bold uppercase text-blue-600 dark:text-yellow-400">
-            <a href="/">Portfolio</a>
+            <a href="/">
+              <img src="/logo.png" alt="Logo" className="w-8 h-auto"/>
+            </a>
           </div>
 
           {/* Desktop Links with Animation */}
@@ -111,7 +113,7 @@ function Navbar({ toggleDarkMode, darkMode }) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex justify-center items-center"
+            className="fixed inset-0 bg-black bg-opacity-10 backdrop-blur-sm flex justify-center items-center"
             onClick={closeMenu}
           >
             <motion.div
@@ -119,7 +121,7 @@ function Navbar({ toggleDarkMode, darkMode }) {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="bg-white bg-opacity-80 backdrop-blur-md rounded-lg shadow-lg p-8 space-y-6 w-60"
+              className="bg-white dark:bg-gray-300 bg-opacity-80 backdrop-blur-md rounded-lg shadow-lg p-8 space-y-6 w-60"
               onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside the menu
             >
               <a

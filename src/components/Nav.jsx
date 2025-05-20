@@ -2,6 +2,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import { SunIcon, MoonIcon } from "@heroicons/react/24/solid";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import { Link, NavLink } from "react-router";
 
 function Navbar({ toggleDarkMode, darkMode }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,50 +17,54 @@ function Navbar({ toggleDarkMode, darkMode }) {
 
   return (
     <section className="sticky top-0 z-50 bg-yellow-100 bg-opacity-10 dark:bg-gray-800 dark:bg-opacity-70 shadow-lg">
-      <motion.nav
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className="bg-white bg-opacity-60 backdrop-blur-md shadow-md p-4"
-      >
+      <nav className="bg-white bg-opacity-60 backdrop-blur-md shadow-md py-3 px-6">
         <div className="container mx-auto flex justify-between items-center">
-          <div className="text-2xl font-bold uppercase text-blue-600 dark:text-yellow-400">
-            <a href="/">
-              <img src="/logo.png" alt="Logo" className="w-8 h-auto"/>
-            </a>
-          </div>
+          <Link to={"/"}>
+            <img src="/logo.png" alt="Logo" className="w-8 h-auto" />
+          </Link>
 
           {/* Desktop Links with Animation */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-            className="hidden md:flex gap-6"
-          >
-            <a
-              href="/"
-              className="text-blue-600 hover:text-blue-800 font-semibold text-lg transition-colors"
+          <div className="hidden md:flex gap-6">
+            <NavLink
+              to={"/"}
+              className={({ isActive }) =>
+                isActive
+                  ? "text-blue-900 font-bold text-lg transition-colors"
+                  : "text-blue-600 font-bold text-lg transition-colors"
+              }
             >
               Home
-            </a>
-            <a
-              href="#skills"
-              className="text-blue-600 hover:text-blue-800 font-semibold text-lg transition-colors"
+            </NavLink>
+            <NavLink
+              to={"/skills"}
+              className={({ isActive }) =>
+                isActive
+                  ? "text-blue-900 font-bold text-lg transition-colors"
+                  : "text-blue-600 font-bold text-lg transition-colors"
+              }
             >
               Skills
-            </a>
-            <a
-              href="#projects"
-              className="text-blue-600 hover:text-blue-800 font-semibold text-lg transition-colors"
+            </NavLink>
+            <NavLink
+              to={"/projects"}
+              className={({ isActive }) =>
+                isActive
+                  ? "text-blue-900 font-bold text-lg transition-colors"
+                  : "text-blue-600 font-bold text-lg transition-colors"
+              }
             >
               Projects
-            </a>
-            <a
-              href="#contact"
-              className="text-blue-600 hover:text-blue-800 font-semibold text-lg transition-colors"
+            </NavLink>
+            <NavLink
+              to={"/contact"}
+              className={({ isActive }) =>
+                isActive
+                  ? "text-blue-900 font-bold text-lg transition-colors"
+                  : "text-blue-600 font-bold text-lg transition-colors"
+              }
             >
               Contact
-            </a>
+            </NavLink>
             {/* Dark Mode Toggle */}
             <button
               onClick={toggleDarkMode}
@@ -72,7 +77,7 @@ function Navbar({ toggleDarkMode, darkMode }) {
                 <MoonIcon className="w-6 h-6 transform rotate-0 transition-transform duration-500 ease-in-out" />
               )}
             </button>
-          </motion.div>
+          </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden text-blue-600 dark:text-white flex gap-3">
@@ -103,7 +108,7 @@ function Navbar({ toggleDarkMode, darkMode }) {
             </button>
           </div>
         </div>
-      </motion.nav>
+      </nav>
 
       {/* Mobile Menu with Animation */}
       <AnimatePresence>
@@ -124,34 +129,34 @@ function Navbar({ toggleDarkMode, darkMode }) {
               className="bg-white dark:bg-gray-300 bg-opacity-80 backdrop-blur-md rounded-lg shadow-lg p-8 space-y-6 w-60"
               onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside the menu
             >
-              <a
-                href="/"
+              <Link
+                to={"/"}
                 onClick={closeMenu}
-                className="block text-center text-blue-700 font-semibold text-xl hover:text-blue-900 hover:font-bold transition-colors"
+                className="block text-center text-blue-700 font-bold text-xl hover:font-bold transition-colors"
               >
                 Home
-              </a>
-              <a
-                href="#skills"
+              </Link>
+              <Link
+                to={"/skills"}
                 onClick={closeMenu}
-                className="block text-center text-blue-700 font-semibold text-xl hover:text-blue-900 hover:font-bold transition-colors"
+                className="block text-center text-blue-700 font-bold text-xl hover:font-bold transition-colors"
               >
                 Skills
-              </a>
-              <a
-                href="#projects"
+              </Link>
+              <Link
+                to={"/projects"}
                 onClick={closeMenu}
-                className="block text-center text-blue-700 font-semibold text-xl hover:text-blue-900 hover:font-bold transition-colors"
+                className="block text-center text-blue-700 font-bold text-xl hover:font-bold transition-colors"
               >
                 Projects
-              </a>
-              <a
-                href="#contact"
+              </Link>
+              <Link
+                to={"/contact"}
                 onClick={closeMenu}
-                className="block text-center text-blue-700 font-semibold text-xl hover:text-blue-900 hover:font-bold transition-colors"
+                className="block text-center text-blue-700 font-bold text-xl hover:font-bold transition-colors"
               >
                 Contact
-              </a>
+              </Link>
             </motion.div>
           </motion.div>
         )}

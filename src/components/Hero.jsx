@@ -1,10 +1,12 @@
 import { motion } from "framer-motion";
 import Button from "./Button";
+import { useNavigate } from "react-router";
 
 const Hero = () => {
+  const navigate = useNavigate();
   return (
-    <section className="flex items-center pt-14 text-blue-900 px-6 md:mt-0 md:py-auto">
-      <div className="container mx-auto flex flex-col md:flex-row items-center md:space-x-10">
+    <section className="flex items-center text-blue-900 px-6 md:mt-0 md:py-auto h-svh">
+      <div className="container flex flex-col md:flex-row items-center md:space-x-10">
         <motion.div
           className="flex-1 mb-10 md:mb-0"
           initial={{ x: -100, opacity: 0 }}
@@ -62,8 +64,8 @@ const Hero = () => {
                 className="bg-blue-600 hover:bg-blue-700 text-white shadow-md"
               />
             </motion.a>
-            <motion.a
-              href="#contact"
+            <motion.div
+              onClick={() => navigate("/contact")}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.7 }}
@@ -72,7 +74,7 @@ const Hero = () => {
                 text="Let’s Connect"
                 className="bg-blue-600 hover:bg-blue-700 text-white shadow-md"
               />
-            </motion.a>
+            </motion.div>
           </div>
         </motion.div>
       </div>

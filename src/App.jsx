@@ -1,10 +1,7 @@
 import { useEffect, useState } from "react";
 import Nav from "./components/Nav";
-import Hero from "./components/Hero";
-import Skills from "./components/Skills";
-import Projects from "./components/Projects";
-import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import { Outlet } from "react-router";
 
 const App = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -37,10 +34,7 @@ const App = () => {
     <div className={`${darkMode ? "dark" : ""}`}>
       <Nav toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
       <main className=" dark:bg-black text-gray-600 dark:text-gray-300">
-        <Hero />
-        <Skills />
-        <Projects />
-        <Contact />
+        <Outlet />
         <Footer />
       </main>
     </div>
